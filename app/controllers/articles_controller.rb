@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :find_article, only: [:show, :edit]
+  before_action :find_article, only: [:show, :edit, :update]
 
   def new
     @article = Article.new
@@ -20,6 +20,15 @@ class ArticlesController < ApplicationController
   def edit
   end
 
+  def update
+    if @article.update(article_params)
+      p "article successfully updated"
+      redirect_to @article
+    else
+      render 'edit'
+    end
+  end
+
   def show
   end
 
@@ -30,11 +39,11 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :author, :content)
+    params.require(:article).permit(:title, :author, :content, :cover_photo)
   end
 
   def find_article
     @article = Article.find(params[:id])
   end
-  
+
 end
