@@ -47,10 +47,10 @@ class ArticlesController < ApplicationController
  def results
    @results = params[:q]
    p params[:date_submitted]
-   if params[:terms].to_i != 1
-     p 'User did not agree :/'
-     render 'search'
-   end
+   # if params[:terms].to_i != 1
+   #   p 'User did not agree :/'
+   #   render 'search'
+   # end
    search_words = params[:q].downcase.split(' ')
    titles = Article.pluck(:title)
    matches = []
