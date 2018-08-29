@@ -47,31 +47,28 @@ class ArticlesController < ApplicationController
  def results
    @results = params[:q]
    p params[:date_submitted]
-
    if params[:terms].to_i != 1
      p 'User did not agree :/'
      render 'search'
    end
-
-   search_words = params[:q].split(' ')
+   search_words = params[:q].downcase.split(' ')
    titles = Article.pluck(:title)
+   p titles
    matches = []
    @final_results = []
    search_words.each do |word|
      titles.each do |t|
-       if t.include?(word)
+       if t.downcase.include?(word)
          matches << t
        end
      end
    end
-   p matches
    matches.each do |match| #2
        x = Article.where(title: match) #2
        x.each do |y|
          @final_results << y
        end
    end
-
    @final_results
  end
 
