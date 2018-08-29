@@ -53,7 +53,6 @@ class ArticlesController < ApplicationController
    end
    search_words = params[:q].downcase.split(' ')
    titles = Article.pluck(:title)
-   p titles
    matches = []
    @final_results = []
    search_words.each do |word|
