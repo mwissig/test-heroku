@@ -1,5 +1,6 @@
-<h1>Articles matching "<%= @results %>" </h1>
+<h1>Articles matching "<%= params[:q] %>" </h1>
 
+<p><%= @final_results.count %> results found</p>
 <% @final_results.each do |res| %>
   <%= link_to "#{res.title}", res %><br>
 <% end %>
