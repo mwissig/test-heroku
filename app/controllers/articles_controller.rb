@@ -66,15 +66,13 @@ class ArticlesController < ApplicationController
    end
    p matches
    matches.each do |match| #2
-     Article.all.each do |article| #3
        x = Article.where(title: match) #2
        x.each do |y|
          @final_results << y
        end
-     end
    end
 
-   @final_results.uniq!
+   @final_results
  end
 
   private
