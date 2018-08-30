@@ -1,0 +1,19 @@
+# Do this first
+
+Mockup database layout, how tables relate to one another
+- create tables. Don't worry views at this point
+- throw in your associative methods (has_many, belongs_to, etc)
+- Run your code in a read evaluate print loop. Line by line
+- REPL -> Read, Evaluate, Print, Loop
+
+
+# Memorize
+- whitelist params methods
+- find methods for models
+- putting resources in your routes file
+- running rails routes to check how something is accessed
+
+# Reference docs for
+- Nested routes
+- ActiveRecord Associations
+- How primary and foreign keys work

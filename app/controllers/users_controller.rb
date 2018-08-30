@@ -6,8 +6,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.generate_eid
     if @user.save
-      msg = "Thanks for signing up, #{@user.email}!"
+      msg = "Registration complete!"
       flash[:notice] = msg
       redirect_to @user
     else

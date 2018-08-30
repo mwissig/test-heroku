@@ -8,15 +8,15 @@
 
 require 'faker'
 
-500.times {
-  r = (3..10).to_a.shuffle[0]
-  art = Article.new(
-    title: Faker::Book.title,
-    content: Faker::Lorem.paragraphs(r),
-    user_id: [1,2].shuffle[0]
-  )
-  match = Article.find_by(title: art.title)
-  if !match
-    art.save
-  end
-}
+# 500.times {
+#   r = (3..10).to_a.shuffle[0]
+#   art = Article.new(
+#     title: Faker::Book.title,
+#     content: Faker::Lorem.paragraphs(r),
+#     user_id: [1,2].shuffle[0]
+#   )
+#   match = Article.find_by(title: art.title)
+#   if !match
+#     art.save
+#   end
+# }

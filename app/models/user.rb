@@ -9,6 +9,10 @@ class User < ApplicationRecord
     self.first_name + " " + self.last_name
   end
 
+  def generate_eid
+    self.eid = SecureRandom.hex(3).upcase
+  end
+
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
